@@ -54,3 +54,38 @@ Các phân tích tiếp theo cần kiểm tra Revenue theo Category, Product, Cu
 - Revenue là Derived Revenue được tính từ Price, Quantity và Discount.
 - Business definition chính thức của Discount chưa được xác nhận.
 - Tháng 5 không phải một tháng đầy đủ.
+
+## 2. Next Analysis Questions
+
+Các phân tích tiếp theo cần trả lời:
+
+1. Category nào đóng góp nhiều nhất vào Revenue?
+2. Product nào đóng góp nhiều nhất vào Revenue?
+3. Product nào có Units Sold cao nhưng Revenue tương đối thấp?
+4. Customer nào đóng góp nhiều nhất vào Revenue?
+5. Revenue có tập trung vào một nhóm nhỏ khách hàng hay không?
+6. Employee nào xử lý nhiều Transaction và tạo ra nhiều Revenue?
+7. Revenue phân bổ như thế nào theo Geography?
+8. Discount có mối liên hệ như thế nào với Revenue và Units Sold?
+
+---
+
+## 3. Current Analysis Status
+
+### Completed
+
+- Revenue definition validation
+- Monthly Revenue analysis
+- Gross Sales analysis
+- Units Sold analysis
+- Transaction Count analysis
+
+### Next
+
+- Category analysis
+- Product analysis
+- Customer analysis
+- Employee analysis
+- Geographic analysis
+- Discount analysis
+- Power BI dashboard
