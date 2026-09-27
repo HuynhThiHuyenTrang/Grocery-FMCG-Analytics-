@@ -105,7 +105,7 @@ Confections là category có đóng góp Revenue cao nhất nhưng chỉ chiếm
 
 Điều này cho thấy khi phân tích Revenue, cần xem xét đồng thời nhiều category thay vì chỉ tập trung vào category đứng đầu.
 
-Phân tích Product tiếp theo sẽ giúp xác định những sản phẩm cụ thể đang tạo ra Revenue trong từng category.
+Phân tích Product tiếp theo giúp xác định những sản phẩm cụ thể đang tạo ra Revenue trong từng category.
 
 ### Caveats
 
@@ -126,7 +126,7 @@ Phân tích Product tiếp theo sẽ giúp xác định những sản phẩm c�
 
 ### Top Products by Revenue
 
-Top 20 products được xếp hạng theo Derived Revenue.
+Top products được xếp hạng theo Derived Revenue. Bảng dưới đây hiển thị Top 5 products.
 
 | Rank | Product | Category | Derived Revenue | Revenue Share |
 |---:|---|---|---:|---:|
@@ -142,7 +142,7 @@ Tổng Revenue Share của Top 20 products khoảng 8.43%.
 
 ### Finding
 
-`Bread - Calabrese Baguette` có Derived Revenue cao nhất trong Top 20 sản phẩm, đạt khoảng 18.70 triệu, tương đương khoảng 0.44% tổng Derived Revenue.
+`Bread - Calabrese Baguette` có Derived Revenue cao nhất trong nhóm Top products, đạt khoảng 18.70 triệu, tương đương khoảng 0.44% tổng Derived Revenue.
 
 Các sản phẩm tiếp theo như `Shrimp - 31/40`, `Puree - Passion Fruit` và `Tia Maria` cũng có Revenue gần tương đương, khoảng 18.50 triệu mỗi sản phẩm.
 
@@ -224,7 +224,158 @@ Phân tích hiện tại chỉ sử dụng CategoryID và ProductID theo mapping
 
 ---
 
-## 4. Current Analysis Status
+## 4. Customer Analysis
+
+### Business Questions
+
+- Customer nào đóng góp nhiều nhất vào Derived Revenue?
+- Revenue có tập trung vào một số ít customers hay được phân bổ rộng?
+- Giá trị trung bình mỗi transaction là bao nhiêu?
+- Customer có tần suất giao dịch như thế nào trong observed period?
+
+### Customer Revenue
+
+Top 20 customers được xếp hạng theo Derived Revenue.
+
+| Rank | Customer | Revenue | Units Sold | Transaction Count |
+|---:|---|---:|---:|---:|
+| 1 | Wayne L Chan | 126,585.89 | 2,424 | 101 |
+| 2 | Ronda U Wallace | 121,922.59 | 2,350 | 94 |
+| 3 | Olivia K Dean | 121,150.81 | 2,400 | 96 |
+| 4 | Paula H Lin | 120,849.78 | 2,400 | 96 |
+| 5 | Ericka H O'Connor | 119,730.65 | 2,375 | 95 |
+| 6 | Kerri I Bautista | 119,180.30 | 2,225 | 89 |
+| 7 | Jami N York | 118,687.74 | 2,300 | 92 |
+| 8 | Cherie Z Barrera | 118,133.45 | 2,250 | 90 |
+| 9 | Benny D Wilson | 117,902.24 | 2,208 | 92 |
+| 10 | Sally U Reid | 117,498.69 | 2,375 | 95 |
+
+### Finding
+
+`Wayne L Chan` có Derived Revenue cao nhất trong nhóm khách hàng được phân tích, đạt khoảng **126.59K**, với 101 transactions và 2,424 units sold.
+
+Các customers tiếp theo trong Top 10 có Revenue khá gần nhau, khoảng 117.50K–121.92K.
+
+Không có sự chênh lệch quá lớn giữa các customers đứng đầu theo Revenue.
+
+### Customer Revenue Concentration
+
+Tổng Derived Revenue của toàn bộ customers có SalesDate hợp lệ là khoảng **4.289 tỷ**.
+
+Top 10 customers tạo ra khoảng **1.202 triệu** Derived Revenue, tương đương khoảng **0.0280%** tổng Derived Revenue.
+
+### Business Interpretation
+
+Revenue được phân bổ rất rộng trên customer base.
+
+Top 10 customers chỉ đóng góp khoảng 0.0280% tổng Derived Revenue trong observed period. Điều này cho thấy tổng Revenue không phụ thuộc đáng kể vào một nhóm rất nhỏ customers.
+
+Do đó, khi phân tích customer contribution, cần xem xét toàn bộ customer base thay vì chỉ tập trung vào Top 10 customers.
+
+### Overall AOV
+
+Overall Average Order Value (AOV):
+
+**AOV = Total Derived Revenue / Transaction Count**
+
+| Metric | Value |
+|---|---:|
+| Total Derived Revenue | 4,289,241,827.86 |
+| Transaction Count | 6,690,599 |
+| AOV | **641.08** |
+
+Overall AOV trong observed period là khoảng **641.08 per transaction**.
+
+### Customer AOV
+
+Một số customers có AOV cao hơn đáng kể so với overall AOV.
+
+Customer có AOV cao nhất trong kết quả được phân tích:
+
+| Rank | Customer | Revenue | Transactions | AOV |
+|---:|---|---:|---:|---:|
+| 1 | Rick O Hinton | 105,064.43 | 66 | 1,591.89 |
+| 2 | Janet F Houston | 90,590.82 | 60 | 1,509.85 |
+| 3 | Miguel H Bishop | 79,855.32 | 53 | 1,506.70 |
+| 4 | Jessie E Holloway | 116,913.96 | 78 | 1,498.90 |
+| 5 | Jake D Briggs | 103,384.87 | 70 | 1,476.93 |
+
+Customer có AOV cao nhất không nhất thiết là customer có Revenue cao nhất.
+
+Ví dụ, `Wayne L Chan` đứng đầu về total Revenue nhưng không đứng đầu về AOV.
+
+Điều này cho thấy Revenue và AOV phản ánh các khía cạnh khác nhau của customer value.
+
+### Repeat vs One-time Customers
+
+Trong observed period:
+
+| Customer Type | Customer Count | Rate |
+|---|---:|---:|
+| One-time Customers | 0 | 0% |
+| Repeat Customers | 98,759 | 100% |
+| Total Customers | 98,759 | 100% |
+
+Tất cả 98,759 customers đều có nhiều hơn một transaction trong khoảng thời gian quan sát.
+
+Không có customer nào chỉ xuất hiện đúng một transaction.
+
+Tuy nhiên, kết quả này **không nên được diễn giải là 100% customer loyalty hoặc long-term retention**.
+
+Ở đây, `Repeat Customer` chỉ có nghĩa customer có hơn một transaction trong observed period.
+
+### Customer Purchase Frequency
+
+| Metric | Value |
+|---|---:|
+| Minimum Transactions / Customer | 36 |
+| Maximum Transactions / Customer | 102 |
+| Average Transactions / Customer | 67.75 |
+
+Phân phối customer theo transaction frequency:
+
+| Transaction Frequency Group | Customer Count | Customer Share |
+|---|---:|---:|
+| 1–10 | 0 | 0% |
+| 11–30 | 0 | 0% |
+| 31–50 | 1,463 | 1.481% |
+| 51–100 | 97,290 | 98.513% |
+| >100 | 6 | 0.006% |
+
+### Finding
+
+Phần lớn customer có tần suất giao dịch nằm trong khoảng 51–100 transactions.
+
+Cụ thể, **97,290 customers**, tương đương khoảng **98.51% customer base**, nằm trong nhóm 51–100 transactions.
+
+Customer có ít transactions nhất vẫn có 36 transactions, trong khi customer có nhiều transactions nhất có 102 transactions.
+
+### Business Interpretation
+
+Customer transaction frequency trong dataset tập trung rất mạnh trong observed period.
+
+Tuy nhiên, transaction frequency cao không đồng nghĩa với long-term retention hoặc customer loyalty.
+
+Dataset chỉ phản ánh hành vi giao dịch trong khoảng thời gian quan sát từ **01/01/2018 đến 09/05/2018**. Vì vậy, kết quả nên được hiểu là:
+
+> Customer purchase frequency during the observed period.
+
+Không nên sử dụng kết quả này để kết luận về lifetime value hoặc retention dài hạn.
+
+### Caveats
+
+- Revenue là Derived Revenue được tính từ `Price`, `Quantity` và `Discount`.
+- `TotalPrice` bằng 0 toàn bộ dataset.
+- Customer analysis chỉ sử dụng các sales records có `SalesDate IS NOT NULL`.
+- Top 10 customer concentration chỉ phản ánh observed period.
+- Repeat customer được định nghĩa là customer có hơn một transaction trong observed period.
+- Không thể kết luận long-term retention hoặc loyalty từ dataset này.
+- Dataset có khoảng 4 tháng và 9 ngày dữ liệu, nên purchase frequency cần được hiểu trong phạm vi thời gian này.
+- Không nên kết luận customer nào "tốt nhất" chỉ dựa trên một metric; Revenue, AOV, Units Sold và Transaction Count phản ánh các khía cạnh khác nhau.
+
+---
+
+## 5. Current Analysis Status
 
 ### Completed
 
@@ -239,11 +390,18 @@ Phân tích hiện tại chỉ sử dụng CategoryID và ProductID theo mapping
 - Top Product analysis
 - Top 3 Product by Category analysis
 - Product Revenue concentration analysis
+- Customer Revenue analysis
+- Customer Revenue Share analysis
+- Top 10 Customer Revenue Concentration analysis
+- Overall AOV analysis
+- Customer AOV analysis
+- Repeat vs One-time Customer analysis
+- Customer Purchase Frequency analysis
 
 ### Next
 
-- Customer analysis
 - Employee analysis
 - Geographic analysis
 - Discount analysis
 - Power BI dashboard
+- Business recommendations
