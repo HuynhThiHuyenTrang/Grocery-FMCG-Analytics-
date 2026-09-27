@@ -221,3 +221,28 @@ Phân tích hiện tại chỉ sử dụng CategoryID và ProductID theo mapping
 - Dataset không có Cost/Profit/Margin nên không thể kết luận về profitability của Product hoặc Category.
 - Top 20 products chỉ phản ánh nhóm sản phẩm có Revenue cao nhất, không đại diện cho toàn bộ 452 products được bán.
 - Các Product–Category mapping bất thường chưa được xác minh với business owner.
+
+---
+## 4. Current Analysis Status
+
+### Completed
+
+- Revenue definition validation
+- Monthly Revenue analysis
+- Gross Sales analysis
+- Units Sold analysis
+- Transaction Count analysis
+- Category Revenue analysis
+- Category Revenue Share analysis
+- Product Revenue analysis
+- Top Product analysis
+- Top 3 Product by Category analysis
+- Product Revenue concentration analysis
+
+### Next
+
+- Customer analysis
+- Employee analysis
+- Geographic analysis
+- Discount analysis
+- Power BI dashboard
