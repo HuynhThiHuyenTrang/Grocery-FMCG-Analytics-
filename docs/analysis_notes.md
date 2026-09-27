@@ -375,7 +375,210 @@ Không nên sử dụng kết quả này để kết luận về lifetime value 
 
 ---
 
-## 5. Current Analysis Status
+## 5. Employee Analysis
+
+### 5.1 Employee Revenue
+
+Employee Revenue được tính theo:
+
+> Revenue = Price × Quantity × (1 - Discount)
+
+Kết quả cho thấy có 23 nhân viên tham gia tạo doanh thu trong kỳ quan sát.
+
+Top employees theo Derived Revenue:
+
+| Rank | Employee | Revenue | Units Sold | Transactions |
+|---:|---|---:|---:|---:|
+| 1 | Devon D Brewer | 188.17M | 3,803,313 | 292,024 |
+| 2 | Shelby P Riddle | 187.58M | 3,781,726 | 290,669 |
+| 3 | Katina Y Marks | 187.44M | 3,785,142 | 290,633 |
+| 4 | Desiree L Stuart | 187.27M | 3,781,780 | 290,729 |
+| 5 | Darnell O Nielsen | 187.21M | 3,792,135 | 291,767 |
+
+Devon D Brewer có Derived Revenue cao nhất, khoảng 188.17M.
+
+Revenue giữa các nhân viên khá sát nhau. Nhân viên có Revenue cao nhất đạt khoảng 188.17M, trong khi nhân viên thấp nhất trong toàn bộ nhóm đạt khoảng 184.35M.
+
+### 5.2 Employee Revenue Concentration
+
+Top 5 employees:
+
+- Top 5 Revenue: 937.67M
+- Total Revenue: 4.289B
+- Top 5 Revenue Share: 21.86%
+
+Top 5 employees đóng góp khoảng 21.86% tổng Derived Revenue.
+
+Điều này cho thấy Revenue được phân bổ tương đối đều giữa 23 employees trong kỳ quan sát, thay vì tập trung vào một số ít employees.
+
+### 5.3 Employee AOV
+
+AOV được tính:
+
+> AOV = Revenue / Transaction Count
+
+Một số employees có AOV cao trong kết quả:
+
+| Rank | Employee | AOV |
+|---:|---|---:|
+| 1 | Shelby P Riddle | 645.35 |
+| 2 | Katina Y Marks | 644.93 |
+| 3 | Devon D Brewer | 644.35 |
+| 4 | Desiree L Stuart | 644.15 |
+| 5 | Tonia O Mc Millan | 643.99 |
+
+AOV giữa các employees không chênh lệch lớn.
+
+Shelby P Riddle có AOV cao nhất trong kết quả, khoảng 645.35.
+
+### 5.4 Employee Revenue Share
+
+Revenue Share của employees cũng khá đồng đều.
+
+- Devon D Brewer: 4.387%
+- Shelby P Riddle: 4.373%
+- Katina Y Marks: 4.370%
+- Desiree L Stuart: 4.366%
+- Seth D Franco: 4.298%
+
+### 5.5 Employee Insight
+
+> Employee Revenue được phân bổ khá đồng đều giữa 23 employees. Devon D Brewer có Derived Revenue cao nhất, khoảng 188.17M, tương đương 4.39% tổng Revenue. Top 5 employees đóng góp 21.86% tổng Derived Revenue. AOV giữa các employees cũng khá sát nhau. Kết quả này mô tả phân bổ doanh thu trong kỳ quan sát và chưa đủ để đánh giá hiệu suất hay năng suất nhân viên vì dataset không có employee target, quota hoặc cost.
+
+---
+
+## 6. Geographic Analysis
+
+### 6.1 Country Revenue
+
+Dataset chỉ ghi nhận một quốc gia:
+
+| Country | Revenue | Units Sold | Transactions |
+|---|---:|---:|---:|
+| United States | 4.289B | 87,003,547 | 6,690,599 |
+
+United States chiếm 100% Derived Revenue trong dataset.
+
+Do chỉ có một country được ghi nhận, country-level comparison không cung cấp nhiều thông tin phân biệt.
+
+### 6.2 City Revenue
+
+Top cities theo Derived Revenue:
+
+| Rank | City | Revenue | Units Sold | Transactions |
+|---:|---|---:|---:|---:|
+| 1 | Tucson | 48.35M | 983,617 | 74,904 |
+| 2 | Jackson | 47.92M | 966,980 | 71,777 |
+| 3 | Sacramento | 47.69M | 972,892 | 73,837 |
+| 4 | Fort Wayne | 47.24M | 958,555 | 74,400 |
+| 5 | Indianapolis | 46.92M | 951,444 | 73,797 |
+
+Tucson có Derived Revenue cao nhất trong kết quả, khoảng 48.35M.
+
+Revenue giữa các cities trong nhóm dẫn đầu khá sát nhau.
+
+### 6.3 City Revenue Concentration
+
+- Top 10 City Revenue: 470.93M
+- Total Revenue: 4.289B
+- Top 10 City Revenue Share: 10.98%
+
+Top 10 cities đóng góp 10.98% tổng Derived Revenue.
+
+Điều này cho thấy phần lớn Revenue nằm ngoài nhóm 10 cities đứng đầu trong observed period.
+
+### 6.4 Geographic Data Quality Observation
+
+Trong kết quả city analysis, `Colorado` xuất hiện trong trường `CityName`.
+
+Đây là một potential master-data issue vì `Colorado` thường được biết đến là tên bang của Hoa Kỳ thay vì tên city.
+
+Dataset chưa được tự ý sửa. Đây chỉ được ghi nhận như một data quality observation cần kiểm tra thêm với business/source system trước khi sử dụng cho reporting chính thức.
+
+### 6.5 Geographic Insight
+
+> Dataset chỉ ghi nhận United States ở cấp country. Ở cấp city, Tucson có Derived Revenue cao nhất khoảng 48.35M. Top 10 cities đóng góp 10.98% tổng Revenue, cho thấy phần lớn Revenue nằm ngoài nhóm 10 cities đứng đầu trong observed period. Ngoài ra, phát hiện `Colorado` trong CityName là một potential master-data issue cần xác minh trước khi sử dụng city-level reporting chính thức.
+
+---
+
+## 7. Discount Analysis
+
+### 7.1 Revenue by Discount Level
+
+Dataset quan sát được ba mức Discount chính:
+
+- 0%
+- 10%
+- 20%
+
+| Discount | Transactions | Units Sold | Gross Sales | Revenue | Discount Amount |
+|---:|---:|---:|---:|---:|---:|
+| 0% | 5,353,035 | 69,599,247 | 3.538B | 3.538B | 0 |
+| 10% | 670,318 | 8,729,851 | 443.31M | 398.98M | 44.33M |
+| 20% | 667,246 | 8,674,449 | 440.68M | 352.55M | 88.14M |
+
+`DiscountAmount` là derived metric:
+
+> Discount Amount = Price × Quantity × Discount
+
+Đây không phải field có sẵn trong source dataset.
+
+### 7.2 Transaction Share and Revenue Share
+
+| Discount | Transaction Share | Revenue Share |
+|---:|---:|---:|
+| 0% | 80.01% | 82.48% |
+| 10% | 10.02% | 9.30% |
+| 20% | 9.97% | 8.22% |
+
+Các nhóm có Discount chiếm tỷ trọng Revenue thấp hơn tỷ trọng Transaction của chúng.
+
+Ví dụ:
+
+- 10% Discount: 10.02% transactions nhưng 9.30% Revenue.
+- 20% Discount: 9.97% transactions nhưng 8.22% Revenue.
+
+### 7.3 AOV by Discount Level
+
+| Discount | Transactions | Revenue | AOV |
+|---:|---:|---:|---:|
+| 0% | 5,353,035 | 3.538B | 660.88 |
+| 10% | 670,318 | 398.98M | 595.21 |
+| 20% | 667,246 | 352.55M | 528.36 |
+
+Observed AOV giảm theo mức Discount:
+
+- 0%: 660.88
+- 10%: 595.21
+- 20%: 528.36
+
+### 7.4 Discount Insight
+
+> Trong dữ liệu quan sát, AOV giảm khi mức Discount tăng: 660.88 ở nhóm 0%, 595.21 ở nhóm 10% và 528.36 ở nhóm 20%. Đồng thời, các nhóm có Discount chiếm tỷ trọng Revenue thấp hơn tỷ trọng Transaction của chúng.
+
+Tuy nhiên, đây là **descriptive association**, không phải bằng chứng về causation.
+
+Không nên kết luận:
+
+> "Discount làm giảm Revenue."
+
+Lý do là các nhóm Discount có thể khác nhau về product mix, quantity, customer mix, thời điểm hoặc các yếu tố khác.
+
+### 7.5 Discount Data Limitation
+
+Ý nghĩa chính thức của field `Discount` chưa được xác nhận từ source documentation.
+
+Phân tích hiện tại dựa trên các giá trị quan sát được:
+
+- 0%
+- 10%
+- 20%
+
+Do đó, Discount Analysis được xem là phân tích mô tả theo observed discount level.
+
+---
+
+## 8. Current Analysis Status
 
 ### Completed
 
@@ -397,11 +600,26 @@ Không nên sử dụng kết quả này để kết luận về lifetime value 
 - Customer AOV analysis
 - Repeat vs One-time Customer analysis
 - Customer Purchase Frequency analysis
+- Employee Revenue analysis
+- Employee Revenue Concentration analysis
+- Employee AOV analysis
+- Employee Revenue Share analysis
+- Country Revenue analysis
+- City Revenue analysis
+- Top 10 City Revenue Concentration analysis
+- Discount Revenue analysis
+- Discount Transaction Share analysis
+- Discount Revenue Share analysis
+- Discount AOV analysis
 
 ### Next
 
-- Employee analysis
-- Geographic analysis
-- Discount analysis
-- Power BI dashboard
-- Business recommendations
+- Build Power BI data model
+- Create Power BI KPI cards
+- Create Revenue Trend dashboard
+- Create Category/Product visuals
+- Create Customer/Employee/Geographic visuals
+- Create Discount analysis visual
+- Write final business insights
+- Write business recommendations
+- Prepare README for GitHub
