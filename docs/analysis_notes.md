@@ -46,7 +46,7 @@ Kết quả cho thấy Revenue có sự biến động theo thời gian. Tháng 
 
 Tuy nhiên, kết quả này mới mô tả sự thay đổi của Revenue theo thời gian và chưa xác định nguyên nhân.
 
-Các phân tích tiếp theo cần kiểm tra Revenue theo Category, Product, Customer và Discount để xác định nguồn đóng góp chính.
+Các phân tích tiếp theo cần kiểm tra Revenue theo Customer, Employee, Geographic và Discount để xác định thêm các nguồn đóng góp và khác biệt trong kết quả kinh doanh.
 
 ### Caveats
 
@@ -223,6 +223,7 @@ Phân tích hiện tại chỉ sử dụng CategoryID và ProductID theo mapping
 - Các Product–Category mapping bất thường chưa được xác minh với business owner.
 
 ---
+
 ## 4. Current Analysis Status
 
 ### Completed
