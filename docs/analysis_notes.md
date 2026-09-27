@@ -55,20 +55,52 @@ Các phân tích tiếp theo cần kiểm tra Revenue theo Category, Product, Cu
 - Business definition chính thức của Discount chưa được xác nhận.
 - Tháng 5 không phải một tháng đầy đủ.
 
-## 2. Next Analysis Questions
+## 2. Category Analysis
 
-Các phân tích tiếp theo cần trả lời:
+### Business Question
 
-1. Category nào đóng góp nhiều nhất vào Revenue?
-2. Product nào đóng góp nhiều nhất vào Revenue?
-3. Product nào có Units Sold cao nhưng Revenue tương đối thấp?
-4. Customer nào đóng góp nhiều nhất vào Revenue?
-5. Revenue có tập trung vào một nhóm nhỏ khách hàng hay không?
-6. Employee nào xử lý nhiều Transaction và tạo ra nhiều Revenue?
-7. Revenue phân bổ như thế nào theo Geography?
-8. Discount có mối liên hệ như thế nào với Revenue và Units Sold?
+Category nào đóng góp nhiều nhất vào Revenue?
 
----
+### Result
+
+| Category | Derived Revenue | Gross Sales | Units Sold | Transaction Count |
+|---|---:|---:|---:|---:|
+| Confections | 551,364,196 | 568,364,034 | 10,967,277 | 843,466 |
+| Meat | 487,926,919 | 503,003,216 | 9,621,629 | 740,223 |
+| Poultry | 435,821,699 | 449,272,583 | 9,071,479 | 697,205 |
+| Cereals | 423,124,754 | 436,248,003 | 8,647,338 | 665,059 |
+| Snails | 368,343,730 | 379,741,148 | 7,128,070 | 548,123 |
+| Produce | 364,516,022 | 375,834,893 | 8,283,590 | 636,392 |
+| Beverages | 362,887,661 | 374,131,156 | 7,320,055 | 563,517 |
+| Dairy | 350,749,670 | 361,504,731 | 6,745,711 | 518,600 |
+| Seafood | 327,198,817 | 337,288,065 | 6,925,812 | 532,207 |
+| Grain | 320,626,814 | 330,514,225 | 5,378,584 | 413,658 |
+| Shell fish | 296,681,546 | 305,807,848 | 6,914,002 | 532,149 |
+
+### Finding
+
+Confections có Derived Revenue cao nhất, đạt khoảng 551.36 triệu.
+
+Meat đứng thứ hai với khoảng 487.93 triệu, tiếp theo là Poultry và Cereals.
+
+Shell fish có Derived Revenue thấp nhất trong các category được phân tích, khoảng 296.68 triệu.
+
+### Business Interpretation
+
+Revenue giữa các category có sự khác biệt đáng kể.
+
+Confections là category có đóng góp Revenue lớn nhất trong dataset theo định nghĩa Derived Revenue hiện tại.
+
+Revenue không chỉ phụ thuộc vào Units Sold. Ví dụ, Produce có hơn 8.28 triệu Units Sold nhưng Revenue khoảng 364.52 triệu, trong khi Confections có khoảng 10.97 triệu Units Sold và Revenue khoảng 551.36 triệu.
+
+Do đó, cần phân tích tiếp ở cấp Product để xác định những sản phẩm cụ thể đang tạo ra đóng góp lớn trong từng category.
+
+### Caveats
+
+- Revenue là Derived Revenue, không phải giá trị lấy trực tiếp từ `TotalPrice`.
+- `TotalPrice` bằng 0 toàn bộ dataset.
+- Business definition chính thức của `Discount` chưa được xác nhận.
+- Dataset không có Cost/Profit/Margin nên không thể kết luận về profitability của category.
 
 ## 3. Current Analysis Status
 
