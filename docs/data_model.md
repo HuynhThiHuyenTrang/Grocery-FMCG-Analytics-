@@ -76,17 +76,36 @@ products 1:N sales
 
 ## 5. Main Analytical Flow
 
-The main analytical flow is:
+The main analytical flow is based on several dimensions connected to the `sales` transaction table.
+
+### Geography → Customer → Sales
 
 countries
 → cities
 → customers
 → sales
 
-cities
+### Geography → Employee → Sales
+
+countries
+→ cities
 → employees
 → sales
 
+### Category → Product → Sales
+
+categories
+→ products
+→ sales
+
+Bảng `sales` được kết hợp với các bảng dimension liên quan để phân tích Revenue, Gross Sales, Units Sold và Transaction Count theo các góc nhìn:
+
+- Geography
+- Customer
+- Employee
+- Category
+- Product
+- Time
 categories
 → products
 → sales
