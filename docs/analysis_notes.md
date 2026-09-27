@@ -55,6 +55,8 @@ Các phân tích tiếp theo cần kiểm tra Revenue theo Category, Product, Cu
 - Business definition chính thức của Discount chưa được xác nhận.
 - Tháng 5 không phải một tháng đầy đủ.
 
+---
+
 ## 2. Category Analysis
 
 ### Business Question
@@ -85,15 +87,25 @@ Meat đứng thứ hai với khoảng 487.93 triệu, tiếp theo là Poultry v�
 
 Shell fish có Derived Revenue thấp nhất trong các category được phân tích, khoảng 296.68 triệu.
 
+### Revenue Contribution
+
+Confections có Revenue Share cao nhất, chiếm khoảng 12.85% tổng Derived Revenue.
+
+Meat chiếm khoảng 11.38%, Poultry khoảng 10.16% và Cereals khoảng 9.86%.
+
+Bốn category đứng đầu gồm Confections, Meat, Poultry và Cereals, đóng góp tổng cộng khoảng 44.26% tổng Derived Revenue.
+
+Không có một category đơn lẻ nào chiếm phần lớn tổng Revenue. Revenue được phân bổ tương đối rộng giữa các category.
+
 ### Business Interpretation
 
-Revenue giữa các category có sự khác biệt đáng kể.
+Kết quả cho thấy Revenue được phân bổ trên nhiều category thay vì tập trung vào một category duy nhất.
 
-Confections là category có đóng góp Revenue lớn nhất trong dataset theo định nghĩa Derived Revenue hiện tại.
+Confections là category có đóng góp Revenue cao nhất nhưng chỉ chiếm khoảng 12.85% tổng Derived Revenue.
 
-Revenue không chỉ phụ thuộc vào Units Sold. Ví dụ, Produce có hơn 8.28 triệu Units Sold nhưng Revenue khoảng 364.52 triệu, trong khi Confections có khoảng 10.97 triệu Units Sold và Revenue khoảng 551.36 triệu.
+Điều này cho thấy khi phân tích Revenue, cần xem xét đồng thời nhiều category thay vì chỉ tập trung vào category đứng đầu.
 
-Do đó, cần phân tích tiếp ở cấp Product để xác định những sản phẩm cụ thể đang tạo ra đóng góp lớn trong từng category.
+Phân tích Product tiếp theo sẽ giúp xác định những sản phẩm cụ thể đang tạo ra Revenue trong từng category.
 
 ### Caveats
 
@@ -101,6 +113,8 @@ Do đó, cần phân tích tiếp ở cấp Product để xác định những s
 - `TotalPrice` bằng 0 toàn bộ dataset.
 - Business definition chính thức của `Discount` chưa được xác nhận.
 - Dataset không có Cost/Profit/Margin nên không thể kết luận về profitability của category.
+
+---
 
 ## 3. Current Analysis Status
 
@@ -111,10 +125,11 @@ Do đó, cần phân tích tiếp ở cấp Product để xác định những s
 - Gross Sales analysis
 - Units Sold analysis
 - Transaction Count analysis
+- Category Revenue analysis
+- Category Revenue Share analysis
 
 ### Next
 
-- Category analysis
 - Product analysis
 - Customer analysis
 - Employee analysis
