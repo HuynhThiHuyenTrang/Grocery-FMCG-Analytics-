@@ -116,23 +116,108 @@ Phân tích Product tiếp theo sẽ giúp xác định những sản phẩm c�
 
 ---
 
-## 3. Current Analysis Status
+## 3. Product Analysis
 
-### Completed
+### Business Questions
 
-- Revenue definition validation
-- Monthly Revenue analysis
-- Gross Sales analysis
-- Units Sold analysis
-- Transaction Count analysis
-- Category Revenue analysis
-- Category Revenue Share analysis
+- Sản phẩm nào đóng góp nhiều nhất vào Derived Revenue?
+- Trong mỗi Category, sản phẩm nào đóng góp Revenue cao nhất?
+- Revenue của mỗi Category có tập trung vào một số ít sản phẩm hay được phân bổ tương đối rộng?
 
-### Next
+### Top Products by Revenue
 
-- Product analysis
-- Customer analysis
-- Employee analysis
-- Geographic analysis
-- Discount analysis
-- Power BI dashboard
+Top 20 products được xếp hạng theo Derived Revenue.
+
+| Rank | Product | Category | Derived Revenue | Revenue Share |
+|---:|---|---|---:|---:|
+| 1 | Bread - Calabrese Baguette | Dairy | 18,702,820 | 0.44% |
+| 2 | Shrimp - 31/40 | Cereals | 18,522,352 | 0.43% |
+| 3 | Puree - Passion Fruit | Beverages | 18,521,966 | 0.43% |
+| 4 | Tia Maria | Beverages | 18,497,276 | 0.43% |
+| 5 | Zucchini - Yellow | Snails | 18,368,012 | 0.43% |
+
+Top 20 products có Revenue khá sát nhau, với Revenue Share của từng sản phẩm dao động khoảng 0.41%–0.44% tổng Derived Revenue.
+
+Tổng Revenue Share của Top 20 products khoảng 8.43%.
+
+### Finding
+
+`Bread - Calabrese Baguette` có Derived Revenue cao nhất trong Top 20 sản phẩm, đạt khoảng 18.70 triệu, tương đương khoảng 0.44% tổng Derived Revenue.
+
+Các sản phẩm tiếp theo như `Shrimp - 31/40`, `Puree - Passion Fruit` và `Tia Maria` cũng có Revenue gần tương đương, khoảng 18.50 triệu mỗi sản phẩm.
+
+Không có một sản phẩm riêng lẻ nào chiếm tỷ trọng lớn trong tổng Derived Revenue.
+
+### Top 3 Products by Category
+
+Top 3 products trong mỗi Category cho thấy Revenue được phân bổ trên nhiều sản phẩm.
+
+| Category | Top 1 Product | Top 2 Product | Top 3 Product |
+|---|---|---|---|
+| Beverages | Puree - Passion Fruit | Tia Maria | Placemat - Scallop, White |
+| Cereals | Shrimp - 31/40 | Lettuce - Treviso | Ice Cream Bar - Oreo Cone |
+| Confections | Hot Chocolate - Individual | Pail With Metal Handle 16l White | Soup - Campbells Tomato Ravioli |
+| Dairy | Bread - Calabrese Baguette | Pop Shoppe Cream Soda | Scampi Tail |
+| Grain | Grenadine | Bread - Multigrain | Pail For Lid 1537 |
+| Meat | Beef - Inside Round | Mushrooms - Black, Dried | Eggplant - Asian |
+| Poultry | Vanilla Beans | Beer - Rickards Red | Bread Foccacia Whole |
+| Produce | Pasta - Detalini, White, Fresh | Rabbit - Whole | Wine - Cahors Ac 2000, Clos |
+| Seafood | Tuna - Salad Premix | Soup Knorr Chili With Beans | Wine - Gato Negro Cabernet |
+| Shell fish | Wasabi Powder | Truffle Cups - Brown | Beef - Rib Eye Aaa |
+| Snails | Zucchini - Yellow | Pork - Hock And Feet Attached | Chestnuts - Whole,canned |
+
+### Revenue Concentration within Category
+
+| Category | Category Revenue | Top 3 Revenue | Top 3 Revenue Share |
+|---|---:|---:|---:|
+| Shell fish | 296,681,546 | 51,978,383 | 17.52% |
+| Grain | 320,626,814 | 53,515,773 | 16.69% |
+| Seafood | 327,198,817 | 53,260,769 | 16.28% |
+| Dairy | 350,749,670 | 54,512,354 | 15.54% |
+| Beverages | 362,887,661 | 54,915,982 | 15.13% |
+| Snails | 368,343,730 | 53,645,174 | 14.56% |
+| Cereals | 423,124,754 | 54,623,218 | 12.91% |
+| Produce | 364,516,022 | 46,613,267 | 12.79% |
+| Poultry | 435,821,699 | 52,847,167 | 12.13% |
+| Meat | 487,926,919 | 53,053,503 | 10.87% |
+| Confections | 551,364,196 | 52,632,568 | 9.55% |
+
+### Finding
+
+Shell fish có mức độ tập trung Revenue vào Top 3 products cao nhất, với khoảng 17.52% Category Revenue.
+
+Grain và Seafood lần lượt có Top 3 Revenue Share khoảng 16.69% và 16.28%.
+
+Ngược lại, Confections có Category Revenue cao nhất nhưng Top 3 products chỉ đóng góp khoảng 9.55% Category Revenue.
+
+### Business Interpretation
+
+Kết quả cho thấy mức độ tập trung Revenue ở cấp Product khác nhau giữa các Category.
+
+Một số Category như Shell fish có tỷ trọng Revenue tương đối cao đến từ ba sản phẩm đứng đầu. Trong khi đó, Revenue của Confections được phân bổ rộng hơn trên nhiều sản phẩm.
+
+Do đó, Category có tổng Revenue cao không nhất thiết phải phụ thuộc nhiều vào một số ít sản phẩm.
+
+Ở cấp toàn dataset, Top 20 products chỉ đóng góp khoảng 8.43% tổng Derived Revenue. Điều này cho thấy Revenue được phân bổ tương đối rộng giữa các sản phẩm.
+
+### Data Observation
+
+Một số Product–Category mapping có vẻ bất thường về mặt tên sản phẩm và Category, ví dụ:
+
+- `Bread - Calabrese Baguette` → Dairy
+- `Shrimp - 31/40` → Cereals
+- `Vanilla Beans` → Poultry
+- `Beer - Rickards Red` → Poultry
+
+Các trường hợp này được ghi nhận như data observations và chưa được tự ý điều chỉnh.
+
+Phân tích hiện tại chỉ sử dụng CategoryID và ProductID theo mapping có sẵn trong database.
+
+### Caveats
+
+- Revenue là Derived Revenue được tính từ `Price`, `Quantity` và `Discount`.
+- `TotalPrice` bằng 0 trên toàn bộ dataset nên không được sử dụng trực tiếp.
+- Business definition chính thức của `Discount` chưa được xác nhận.
+- Dataset không có Cost/Profit/Margin nên không thể kết luận về profitability của Product hoặc Category.
+- Top 20 products chỉ phản ánh nhóm sản phẩm có Revenue cao nhất, không đại diện cho toàn bộ 452 products được bán.
+- Các Product–Category mapping bất thường chưa được xác minh với business owner.
